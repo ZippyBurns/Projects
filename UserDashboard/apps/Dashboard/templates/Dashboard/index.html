@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-	ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/Dashboard/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Dashboard</title>
+    {% load static %}
+    <script src="{% static 'Dashboard/validation.js' %}"></script>
+</head>
+
+<body>
+    <div class="container" class="registration">
+        <div class="row">
+            <div class="col">
+                </form>
+                <h2>Register Here!</h2>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <form action="/" method="POST">
+                    {% csrf_token%}
+                    <p>First Name: <input class="form-control col-4 mt-2" type="text" name="fname"></p>
+                    <p>Last Name: <input class="form-control col-4 mt-2" type="text" name="lname"></p>
+                    <form action="/" method="post" id="regForm">
+                        {% csrf_token %}
+                        <div id="usernameMsg"></div>
+                        <p>E-mail: <input class="form-control col-4 mt-2" id="email" type="text" name="email"></p>
+                        <p>Password: <input class="form-control col-4 mt-2" type="password" name="pword"></p>
+                        <p>Confirm Password: <input class="form-control col-4 mt-2" type="password" name="pwordconf"></p>
+                        <input class="btn btn-success" type="submit" value="Register">
+                        <input type="hidden" value="my_val" , name="my_val">
+                    </form>
+            </div>
+            <div class="col">
+                <h2>Login Here!</h2>
+
+                <form action="/login" method="POST">
+                    {% csrf_token %}
+                    <p>E-mail: <input class="form-control col-4 mt-2" type="text" name="email"></p>
+                    <p>Password: <input class="form-control col-4 mt-2" type="password" name="pword"></p>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

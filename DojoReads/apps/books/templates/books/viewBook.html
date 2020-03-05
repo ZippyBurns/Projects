@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-	ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/books/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User books</title>
+    {% load static %}
+    <script src="{% static 'books/validation.js' %}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h6><a href="/homepage">Home</a> || <a href="/logout">Logout</a></h6>
+        <div class="row">
+            <h1>Book Title</h1>
+            <h4>Author: Book Author</h4>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>Reviews:</h3>
+                <h6> Rating: * * * * *</h6>
+                <p><a href="#">Shirley says:</a> This will be a users Review.</p>
+                <h6>posted on April 21, 2019</h6>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="Review">Review:</label>
+                    <textarea class="form-control" rows="5"></textarea>
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="chooseAuthor">Rating:</label>
+                    <select class="form-control">
+                        <option selected>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <h5>Stars</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

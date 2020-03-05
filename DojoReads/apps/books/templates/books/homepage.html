@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-	ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/books/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User books</title>
+    {% load static %}
+    <script src="{% static 'books/validation.js' %}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome, {{current_user.first_name}}</h1>
+        <p><a href="logout">Logout</a></p>
+        <div class="row">
+            <div class="col">
+                <h3>Recent Book Reviews</h3>
+                <h4><a href="#">Book Title</a></h4>
+                <h6>Rating: </h6>
+                <p> <a href="#">User</a> says:</p>
+                <h6>Posted on April 20, 2019</h6>
+            </div>
+            <div class="col">
+                <h3>Other Books with Reviews:</h3>
+                
+
+                <ul>
+                    <li>
+                        <p>{% for review in recent_reviews %}</p>
+                        {{review.comment}}
+                        {% endfor %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+</body>
+
+</html>

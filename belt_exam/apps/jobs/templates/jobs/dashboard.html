@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../static/jobs/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widp=device-widp, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<header>
+    <h3>Welcome, Logged in as {{user.first_name}}<a href="/logout"> Logout</a></span>
+    <h1>
+        
+</header>
+
+<body>
+    <h1 ><a class="float-right" href="/addJob"> Add a Job</a></h1>
+    <div class="container">
+        <div class="joblist">
+            <table class="table">
+                <tr>
+                    <div class=tablehead></div>
+                    <th class=tablehead>Job</th>
+                    <th class=tablehead>Location</th>
+                    <th class=tablehead>Action</th>
+                </tr>
+                <tr>
+                    {% for job in all_jobs %}
+                    <td class="jobinfo">{{job.title}}</td>
+                    <td class="jobinfo">{{job.location}}</td>
+                    <td class="actions"><a href="/view/{{job.id}}"">View | </a><a class=" actions" href="/addlist">Add |
+                        </a>{% if job.user.id == user.job.id %}<a class="actions" href="/edit/{{job.id}}">Edit | </a><a
+                            class="actions" href="/delete/{{job.id}}">Cancel</a></td>{% endif %}
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+        <div class="myjobs">
+            <table style="width: 30%">
+                <tr>
+                    <p style="width: 30%">My Jobs</p>
+                </tr>
+                <tr>
+                    <td>
+                        {%for job in all_jobs %}
+                        {% if job.user.id == user.job.id %}
+                        <p>{{job.title}} <a href="/view/{{job.id}}">View | </a><a href="/delete/{{job.id}}">Done</a></p>
+                    </td>
+                </tr>
+
+                {% endif %}
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

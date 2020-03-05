@@ -1,0 +1,46 @@
+/* *{
+    border: dotted 1px green;
+} */
+
+.registration{
+    display: inline-block;
+    margin: 50px;
+}
+
+.login{
+    float: right;
+    margin: 50px;
+    margin-right: 550px;
+    padding: 50px;
+}
+
+.joblist{
+    display: inline-block;
+    width: 80%;
+}
+
+.addajob {
+    float: right;
+    padding: 50px;
+}
+
+.logout{
+    color:red;
+    padding-left: 80%;
+    text-align: right; 
+}
+
+.myjobs{
+     max-width: 80%;
+}
+
+.wrapper{
+    border: 2px solid black;
+    width: 20%;
+    text-align: center;
+    position: relative;
+}
+
+table{
+    border: 1px solid black;
+}

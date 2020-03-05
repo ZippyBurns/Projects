@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/jobs/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<header>
+
+
+    <body>
+        <div> Logged in as {{user.first_name}} <span class="logout"><a href="/dashboard">Back </a>
+                <a href="/logout"> Logout</a>
+            </span>
+</header>
+<h3>Edit Your Job Posting</h3>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+        {% endif %}
+</ul>
+<form type="submit" action="/edit/{{job.id}}" method="POST">
+    {% csrf_token %}
+    <h4>Title: <input type="text" name="title" placeholder="{{job.title}}" value={{job.title}}></h4>
+    <h4>Description: <input type="text" name="description" placeholder="{{job.title}}" value="{{job.description}}"></h4>
+    <h4>Location: <input type="text" name="location" placeholder="{{job.title}}" value={{job.location}}>
+    </h4>
+    <input type="submit" value="update">
+</form>
+
+<body>
+
+</body>
+
+</html>

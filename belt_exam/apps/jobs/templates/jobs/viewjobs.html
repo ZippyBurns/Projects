@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/jobs/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<header> 
+
+    <body>
+        <div class="container">
+            <span class="logout"> <a href="/dashboard">Back </a><a href="/logout"> Logout</a></span>
+</header>
+
+<h1> {{job.title}} </h1>
+
+<div class=wrapper>
+
+
+    <p> {{job.description}}</p>
+    <p>Location: {{job.location}}</p>
+    <p>Posted by: {{user.job.first_name}}</p>
+    <p>Posted on: {{job.created_at}}</p>
+    <a href="#">Add to My Jobs</a>
+</div>
+</div>
+</body>
+
+</html>

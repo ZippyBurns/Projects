@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/jobs/style.css" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<header><a href="/dashboard">Back </a>
+
+    <body>
+        <div> <span class=logout>Logged in as {{user.first_name}} <a href="/logout"> Logout</a></span>
+            <h3>Add a Job</h3>
+</header>
+
+<body>
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+                {% endif %}
+        </ul>
+        <form action="/addJob" method="POST">
+            {%csrf_token%}
+            <p>Title: <input type="text" name="title"></p>
+            <p>Description: <input type="text" name="description"></p>
+            <p>Location: <input type="text" name="location"></p>
+            <!-- <input type="hidden" name=new_job value="{{job.id}}"> -->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

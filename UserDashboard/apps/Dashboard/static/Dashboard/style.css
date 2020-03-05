@@ -1,0 +1,13 @@
+.error{
+    color: red;
+    font-style: italic;
+}
+
+.success{
+    color: green;
+    font-style: italic;
+}
+
+nav{
+    margin-bottom: 40px;
+}
