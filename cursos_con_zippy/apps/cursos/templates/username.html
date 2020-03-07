@@ -1,0 +1,8 @@
+<link rel="stylesheet" type="text/css" href="../../static/cursos/style.css">
+{% if found == True %}
+<p class="error">Email address is already in use / 
+Correo electrónico ya está en uso</p>
+{% endif %}
+{% if found == False %}
+<p class="success">Email is available / Correo electrónico es disponible</p>
+{% endif %}

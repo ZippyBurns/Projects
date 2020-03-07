@@ -1,0 +1,86 @@
+body{
+    background-image: url("../static/flagBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    background-color: darkred;
+    position: relative;
+    
+    min-height: 500px;
+    width: 100%;
+}
+a{
+    color:blue;
+}
+a:hover{
+    color: green;
+}
+
+a:visited{
+    color: darkblue;
+}
+.error{
+    color:whitesmoke;
+    font-style: italic;
+}
+
+.success{
+    color: green;
+    font-style: italic;
+}
+
+input{
+    width: 150px;
+    float: right;
+}
+#registration{
+    border: 3px solid red;
+    background-color: goldenrod;
+    font-family: 'Roboto Condensed', sans-serif;
+    float: right;
+    padding: 25px;
+    margin: 30px;
+    border-radius: 10px;
+    color:red;
+    width: 370px;
+}
+
+#login{
+    border: 3px solid red;
+    background-color: goldenrod;
+    font-family: 'Roboto Condensed', sans-serif;
+    float: right;
+    padding: 25px;
+    margin: 30px;
+    border-radius: 10px;
+    /* vertical-align: top; */
+    color: red;
+    width: 320px;
+}
+
+
+.header{
+    color: white;
+    text-align:  center;
+    font-family: 'Patrick Hand', cursive;
+    /* background-color: darkred; */
+    font-size: 45px;
+}
+
+.login_input{
+    background-color: burlywood;
+}
+
+input:hover{
+    color: red;
+}
+
+.messages{
+    position: absolute;
+    border: 2px solid red;
+    margin: 80px 20px 80px 20px;
+    width: 400px;
+    background-color: goldenrod;
+    font-family: 'Cantarell', sans-serif;
+    font-size: 22px;
+}
