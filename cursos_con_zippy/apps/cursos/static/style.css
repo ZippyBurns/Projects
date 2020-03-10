@@ -1,19 +1,22 @@
 body{
+    background-image: url("../static/background.jpg");
+    background-repeat: repeat;
+}
+.login_body{
     background-image: url("../static/flagBackground.jpg");
     background-repeat: no-repeat;
     background-size: cover; 
     background-position: center;
     background-color: darkred;
     position: relative;
-    
     min-height: 500px;
     width: 100%;
 }
 a{
-    color:blue;
+    color: green;
 }
 a:hover{
-    color: green;
+    color: red;
 }
 
 a:visited{
@@ -29,7 +32,7 @@ a:visited{
     font-style: italic;
 }
 
-input{
+.login_input{
     width: 150px;
     float: right;
 }
@@ -83,4 +86,31 @@ input:hover{
     background-color: goldenrod;
     font-family: 'Cantarell', sans-serif;
     font-size: 22px;
+}
+
+.dashboard_banner{
+    border: black 2px solid;
+    max-width: 100%;
+}
+
+.start_button{
+    border: 2px solid black;
+    background-color: burlywood;
+    padding: 20px;
+    margin-top: 10px;
+    color: red;
+    font-family: 'Lato', sans-serif;
+
+}
+.list_item{
+    padding: 10px;
+    border: 2px solid black;
+    margin: 5px;
+    text-align: center;
+    background-color: burlywood;
+    color: darkred;
+    font-family: 'Fredoka One', cursive;
+
+
+    
 }

@@ -20,7 +20,7 @@ class UserManager(models.Manager):
         results = User.objects.filter(email = postData['email'])
         if len(results) == 0 :
             errors['email'] = "Login unsuccessful / inicio de sesiòn fallido"
-        elif not bcrypt.checkpw(postData['pword'].encode(), results[0].password.encode()):
+        elif not bcrypt.checkpw(postData['pword'].encode("utf-8"), results[0].password.encode()):
             errors['password'] = "Login unsuccessful / inicio de sesiòn fallido"
         return errors
 
@@ -48,3 +48,4 @@ class Comment(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     # message= models.ForeignKey(Message, related_name="comments")
     # user = models.ForeignKey(User, related_name="comments")
+

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../static/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,7 +12,7 @@
 <div class="container">
     <img class="dashboard_banner" src="../../static/dashboard_banner.png">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/home"></a>
+  <a class="navbar-brand" href="/home">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -32,20 +30,27 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="gsearch">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
-<h1>User Dashboard for {{user.first_name}} {{user.last_name}}</h1>
-<br>
-<p><a class="start_button" href="/library">Start here! Empezar aquí!
-</a>
-</p>
-<div class="row">
-    <div class="col">
-</div>
-
+<h1>Course Library</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm list_item">
+      <a href="/greeting">Greetings / Saludos
+      </a>
     </div>
+    <div class="col-sm list_item">
+      <a href="/number">Numbers / Números
+    </div>
+    <div class="col-sm list_item">
+      <a href="/color">Colors / Colores
+    </div>
+  </div>
+</div>
 </body>
+</div>
+</div>
 </html>

@@ -5,26 +5,26 @@ from django.contrib import messages
 
 def index(request):           
     if request.method == "GET":
-        # context = {"user" : User.objects.all()}
-        return render(request, 'index.html', {"user" : User.objects.all()})
+        context = {"user" : User.objects.all()}
+        return render(request, 'index.html', context)
     if request.method == "POST":  
         errors = User.objects.basic_validator(request.POST)
         if len(errors) > 0:
-        #check if the dictionary contains any errors
+        # check if the dictionary contains any errors
         #if there are errors...
             for key, value in errors.items():
                 messages.error(request, value)
             return redirect('/')
         else:
-            pw_hash = bcrypt.hashpw(request.POST["pword"].encode(), bcrypt.gensalt())
+            pw_hash = bcrypt.hashpw(request.POST["pword"].encode("utf-8"), bcrypt.gensalt())
+            print("password hash: ", pw_hash)
             new_user = User.objects.create(first_name=request.POST['fname'],last_name=request.POST['lname'], email=request.POST['email'], password=pw_hash)
-
-            print("New user: ", new_user.first_name)
+            print("New user: ", new_user.id)
             request.session['id'] = new_user.id
             return redirect("/home")
 
 def username(request):
-    # if request.method == "POST":
+    if request.method == "POST":
         context = {
             "found" : False
         }
@@ -34,11 +34,12 @@ def username(request):
             #ajax email verificar
         return render(request, "username.html", context)
 
-def home(request):
+def homepage(request):
     if 'id' not in request.session:
         return redirect("/")
     else:   
         if request.method == 'GET':
+            print("/home get in function")
             # all_cursos = Hotspring.objects.all().order_by("-updated_at")
             user = User.objects.get(id=request.session['id'])
             print(user)
@@ -59,10 +60,50 @@ def login(request):
             user = User.objects.get(email=request.POST['email'])
             request.session['id'] = user.id
             return redirect ("/home")
+            
+def library(request):
+    if 'id' not in request.session:
+        return redirect("/")
+    if request.method == "GET":
+        user = User.objects.get(id=request.session['id'])
+        context = {
+            "user" : user,
+        }
+        return render(request, 'library.html', context)
 
 def logout(request):
+    if 'id' not in request.session:
+        return redirect("/")
     request.session.clear()
-    return redirect ("/")
+    return redirect ("/home")
 
-def homepage (request):
-    return render(request, 'home.html')
+def greeting(request):
+    if 'id' not in request.session:
+        return redirect("/")
+    if request.method == "GET":
+        user = User.objects.get(id=request.session['id'])
+        context = {
+            "user" : user,
+        }
+        return render(request, 'greeting.html', context)
+
+def color(request):
+    if 'id' not in request.session:
+        return redirect("/")
+    if request.method == "GET":
+        user = User.objects.get(id=request.session['id'])
+        context = {
+            "user" : user,
+        }
+        return render(request, 'color.html', context)
+
+def number(request):
+    if 'id' not in request.session:
+        return redirect("/")
+    if request.method == "GET":
+        user = User.objects.get(id=request.session['id'])
+        context = {
+            "user" : user,
+        }
+        return render(request, 'number.html', context)
+        
